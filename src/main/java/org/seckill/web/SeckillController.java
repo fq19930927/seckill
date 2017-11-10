@@ -26,7 +26,7 @@ public class SeckillController {
     @Autowired
     private SeckillService seckillService;
 
-    @RequestMapping(name = "/list", method = RequestMethod.GET)
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String list(Model model){
         //获取列表页
         List<Seckill> list = seckillService.getSeckillList();
@@ -35,7 +35,7 @@ public class SeckillController {
         return "list";
     }
 
-    @RequestMapping(value = "/{seckillId}",method = RequestMethod.GET)
+    @RequestMapping(value = "/{seckillId}/detail",method = RequestMethod.GET)
     public String detail(@PathVariable("seckillId") Long seckillId, Model model){
         if (seckillId == null){
             return "redirect:/seckill/list";
